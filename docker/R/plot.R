@@ -26,20 +26,19 @@ png("manhattan.png", width = 1000, height = 750, units = 'px', pointsize=16)
 gwas <- tdt[c(2,1,3,10)]
 manhattan(gwas, annotatePval = 0.01)
 # Q-Q plot of GWAS p-values
-png("QQpvalplot.png", width = 1000, height = 750, units = 'px', pointsize=16)
+png("QQtdt.png", width = 1000, height = 750, units = 'px', pointsize=16)
 qq(gwas$P)
 #qq(gwas$P, xlim = c(0, 7), ylim = c(0,12), pch = 18, col = "blue4", cex = 1.5, las = 1)
 
 ########################################
 ### dfam - disequilibrium 
 ########################################
-# make QQ plot for dfam
+png("QQdfam.png", width = 1000, height = 750, units = 'px', pointsize=16)
 qq(dfam$P)
 
 ########################################
 ### Poo - parent of origin
 ########################################
-# make QQ plot for parent of origin
 png("QQpoo.png", width = 1000, height = 750, units = 'px', pointsize=16)
 qq(poo$P_POO)
 
