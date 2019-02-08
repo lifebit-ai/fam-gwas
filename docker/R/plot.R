@@ -23,12 +23,12 @@ abline(a=0,b=1)
 # make Manhattan plot
 png("manhattan.png", width = 1000, height = 750, units = 'px', pointsize=16)
 # set columns equal to SNP, CHR, BP, P for Manhattan plot
-gwas <- tdt[c(2,1,3,10)]
-manhattan(gwas, annotatePval = 0.01)
+#gwas <- tdt[c(2,1,3,10)]
+#manhattan(gwas, annotatePval = 0.01)
 # Q-Q plot of GWAS p-values
 png("QQtdt.png", width = 1000, height = 750, units = 'px', pointsize=16)
-qq(gwas$P)
-#qq(gwas$P, xlim = c(0, 7), ylim = c(0,12), pch = 18, col = "blue4", cex = 1.5, las = 1)
+qq(tdt$P)
+#qq(tdt$P, xlim = c(0, 7), ylim = c(0,12), pch = 18, col = "blue4", cex = 1.5, las = 1)
 
 ########################################
 ### dfam - disequilibrium 

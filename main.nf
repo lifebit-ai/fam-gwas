@@ -26,22 +26,6 @@ process vcf2plink {
     """
 }
 
-// process filter {
-//     publishDir "${params.output_dir}/filter", mode: 'copy'
-
-//     input:
-//     set file(bed), file(bim), file(fam) from plink
-
-//     output:
-//     file('*') into results
-
-//     script:
-//     """
-//     plink --bfile plink --mind 0.1 --geno 0.1 --maf 0.05 --hwe 0.000001 --me 0.05 0.1 --tdt --ci 0.95 --out results1
-//     """
-// }
-
-
 process association {
     publishDir "${params.outdir}/associations", mode: 'copy'
 
@@ -53,9 +37,9 @@ process association {
 
     script:
     """
-    plink --bfile plink --tdt
-    plink --bfile plink --tdt poo
-    plink --bfile plink --dfam
+    plink --bfile plink --mind $params.mind --geno $params.geno --maf $params.maf --hwe $params.hwe --me $params.me 0.1 --ci $params.ci --tdt
+    plink --bfile plink --mind $params.mind --geno $params.geno --maf $params.maf --hwe $params.hwe --me $params.me 0.1 --ci $params.ci --tdt poo
+    plink --bfile plink --mind $params.mind --geno $params.geno --maf $params.maf --hwe $params.hwe --me $params.me 0.1 --ci $params.ci --dfam
     """
 }
 
