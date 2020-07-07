@@ -25,3 +25,6 @@ RUN chmod -R u+x /data/scripts
 ENV PATH=$PATH:/data/scripts/
 
 WORKDIR /data/scripts/
+
+# Install procps so that Nextflow can poll CPU usage
+RUN apt-get update && apt-get install -y procps && apt-get clean -y
